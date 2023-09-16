@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir='rtl' lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href={% static 'styles/base.css' %}>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% comment %} <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/> {% endcomment %}
+    <link href="{% static 'styles/chosen.min.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'styles/persian.datepicker.css'%}"/>
+    <link rel="stylesheet" href="{% static 'styles/chart.css' %}">
+    <title> {% block title %}{% endblock title %} </title>
+</head>
+<body>
+    
+    <nav>
+        <div class="topnav">
+            <a href={% url 'stations' %}>ایستگاه ها</a>
+            <a href=" {%url 'stationcreate' %} ">ایستگاه جدید</a>
+            <a href="{% url 'faults' %}">خطاها</a>
+            <a href=" {% url 'faultcreate' %} ">خطا جدید</a> 
+            <a href=" {% url 'reportcreate' %} ">گزارش جدید</a>
+            <a href="{%url 'pieces'%}">قطعات</a>
+            <a href={% url 'stationreport' %} >نمودار درصد خرابی</a>   
+        </div>
+           
+    </nav>
+
+    <div class='main'>
+
+        {% block content %}{% endblock content %}
+    </div>
+    </body>
+    {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> {% endcomment %}
+    {% comment %} <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script> {% endcomment %}
+    <script type="text/javascript" src="{% static 'scripts/canvasjs.min.js' %}"></script>
+    <script src="{% static 'scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'scripts/chosen.jquery.min.js' %}"></script>
+    <script src="{% static 'scripts/persian.date.js'%}"></script>
+    <script src="{% static 'scripts/persian.datepicker.js'%}"></script>
+
+
+
+    <script src="{%static 'scripts/base.js'%}"></script>
+</html>

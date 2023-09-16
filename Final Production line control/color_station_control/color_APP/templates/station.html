@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Stations{% endblock title %}
+
+{% block content %}
+  
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>نام ایستگاه</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        {% for station in station_list %}
+            <tr {% if station.id|divisibleby:2 %} class="active-row"{% endif %}>
+                <td><a class='button condensed cancel' href=" {% url 'stationdetail' station.id %} ">جزئیات</a></td>
+                <td>{{station.name}}</td>
+            </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+        
+{% endblock content %}
+    

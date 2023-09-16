@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="table-container">
+    <table class="styled-table">
+        <thead>
+            <tr class='under'>
+                <th></th>
+                <th>{{station.name}}</th>
+                <th>ایستگاه  </th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th></th><th></th>
+                <th>نام تجهیز</th>
+    
+    
+            </tr>
+        </thead>
+        <tbody>
+            {% for equip in station.equip_set.all %}
+            <tr {% if equip.id|divisibleby:2 %} class="active-row"{% endif %} >
+                    
+                <th><a href={% url 'equipdelete' equip.id %} class="button condensed delete">حذف</a></th>        
+                <th><a href={% url 'equipupdate' equip.id %} class="button condensed edit", >ویرایش</a></th>
+                <th><a href='{% url 'equipdetail' equip.id %}'> {{equip.name}}</a> </th>        
+        
+        
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    </div>
+    
+
+{% endblock content %}

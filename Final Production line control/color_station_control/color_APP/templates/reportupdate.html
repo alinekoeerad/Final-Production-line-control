@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method='post'>
+    {% csrf_token %}
+    <label>خطا:</label>{{form.fault}}<br>
+    <label>ایستگاه:</label>{{form.station}}<br>
+    <label>تجهیز:</label>{{form.equip}}<br>
+    <label>توضیحات:</label>{{form.description}}<br>
+    <label>شیفت:</label>{{form.shift}}<br>
+    <label>گزارش دهنده:</label>{{form.reporter}}<br>
+    <label>کارشناس مربوطه:</label>{{form.expert}}<br>
+    <label>نظر کارشناس:</label>{{form.opinion}}<br>
+    <label>گزارش تکمیلی:</label>{{form.cReport}}<br>
+    <label>قطعه های تعویض شده:</label>{{form.piece}}<br>
+    <label>تاریخ:</label>{{form.date}}<br>
+    <label>ساعت شروع:</label>{{form.startTime}}<br>
+    <label>ساعت پایان:</label>{{form.endTime}}<br>
+
+    <button class="button primary save" type="submit">ذخیره</button>
+
+</form>
+
+
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='post'>
+    {% csrf_token %}
+    <p>آیا از درخواست خود اطمینان دارید؟</p>
+    <button type='submit' class='button primary delete'>حذف</button>
+    <a class='button primary cancel' href="{% url 'equipstation' equip.station.id %}">لغو<a>
+
+{% endblock content %}

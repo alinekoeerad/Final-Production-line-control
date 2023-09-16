@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <label>نام تجهیز: </label>{{form.name}}<br>
+    <label>ایستگاه: </label> {{form.station}} <br>
+    <button type='submit' class="button primary save"> ذخیره</button>
+</form>
+{% endblock content %}

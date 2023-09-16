@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th></th><th></th>
+            <th>کد ایرانخودرویی</th>
+            <th>کد فنی</th>
+            <th>نام قطعه</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        {% for piece in piece_list %}
+            <tr {% if piece.id|divisibleby:2 %} class="active-row"{% endif %}>
+                    
+                <th><a href={% url 'piecedelete' piece.id %} class="button condensed delete">حذف</a></th>        
+                <th><a href={% url 'pieceupdate' piece.id %} class="button condensed edit", >ویرایش</a></th>
+            
+                <td>{{piece.ikco_id}}</td>
+                <td> {{piece.technical_id}} </td>
+                <td>{{piece.name}}</td>
+            </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+
+<a class='button primary new' href=" {% url 'piececreate' %} " >افزودن قطعه جدید</a>
+
+
+
+
+{% endblock content %}

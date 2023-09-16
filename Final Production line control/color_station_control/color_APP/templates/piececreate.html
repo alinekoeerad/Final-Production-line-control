@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <label>نام قطعه:</label>{{form.name}}<br><br>
+    <label>کد ایرانخودرویی:</label>{{form.ikco_id}}<br><br>
+    <label>کد تکنیکال:</label>{{form.technical_id}}<br><br>
+    <button class="button primary save" type="submit">ذخیره</button>
+
+
+</form>
+
+{% endblock content %}

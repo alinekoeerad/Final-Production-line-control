@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} {{fault.name}} {% endblock title %}
+{% block content %}
+
+
+
+<table class="styled-table">
+    
+    <thead>
+        <tr>
+            <th> فایل مربوطه</th>
+            <th>نام خطا</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+            {% if fault.file %}
+            <td><a href={{fault.file.url}}>{{fault.file}}</a></td>
+            {% else %}
+            <td></td>
+            {% endif %}
+            <td>{{fault.name}} </td>
+            
+        
+    </tbody>
+</table>
+
+<p>
+    
+    <a class="button primary edit", href="{% url 'faultupdate' fault.id %}">ویرایش</a>
+    <a href="{% url 'faultdelete' fault.id %}" class="button primary delete">حذف</a>
+</p>
+
+{% endblock content %}
+
+
+

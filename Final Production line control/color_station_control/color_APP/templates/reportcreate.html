@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+  <div class="container">
+    <form method='post'>
+        {% csrf_token %}
+    </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 " id="upload_basic_info">
+        <div class="form-group">
+            <label>خطا:</label>{{form.fault}}<br>
+          <div class="help-block with-errors"></div>
+        </div>
+  
+        <div class="form-group">
+            <label>ایستگاه:</label>{{form.station}}<br>
+          <div class="help-block with-errors"></div>
+        </div>
+  
+        <div class="form-group">
+            <label>توضیحات:</label>{{form.description}}<br>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+            <label>شیفت:</label>{{form.shift}}<br>
+          <div class="help-block with-errors"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="form-group">
+                <label>گزارش دهنده:</label>{{form.reporter}}<br>
+            </div>
+          </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <label>کارشناس مربوطه:</label>{{form.expert}}<br>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <label>نظر کارشناس:</label>{{form.opinion}}<br>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <label>قطعه های تعویض شده:</label>{{form.piece}}<br>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <label>تاریخ:</label>{{form.date}} <br>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <label>ساعت پایان:</label>{{form.endTime}}<br>
+        </div>
+    </div>
+    
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <label>ساعت شروع:</label>{{form.startTime}}<br>
+        </div>
+    </div>
+    
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+        <div class="form-group">
+            <br><br><button class="button primary save" type="submit">ذخیره</button></div>
+    </div>
+</div>
+</div>
+
+{% endblock content %}

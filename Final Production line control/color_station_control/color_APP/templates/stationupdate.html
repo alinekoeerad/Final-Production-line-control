@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Edit Station{% endblock title %}
+
+{% block content %}
+<div>
+
+    <form method="post">
+        {% csrf_token %}
+        <p><label>نام ایستگاه:</label> {{form.name}} </p>
+        <button class="button primary save" type="submit">ذخیره</button>
+    </form>
+
+</div>
+
+
+{% endblock content %}

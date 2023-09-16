@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Delete Fault{% endblock title %}
+{% block content %}
+<p>
+    <form method='post'>
+        از درخواست خود اطمینان دارید؟
+        {% csrf_token %}
+        <button type="submit" class='button condensed delete'>حذف</button>
+        <a href="{% url 'faultdetail' fault.id %}" class='button condensed cancel'>لغو</a>
+    </form>
+</p>
+{% endblock content %}

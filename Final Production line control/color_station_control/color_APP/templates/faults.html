@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Faults{% endblock title %}
+{% block content %}
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>جزئیات خطا</th>
+            <th>نام خطا</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        {% for fault in fault_list %}
+            <tr {% if fault.id|divisibleby:2 %} class="active-row"{% endif %}>
+                <td><a class='button condensed cancel' href=" {% url 'faultdetail' fault.id %} ">جزئیات</a></td>
+                <td>{{fault.name}}</td>
+            </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+
+
+
+
+{% endblock content %}

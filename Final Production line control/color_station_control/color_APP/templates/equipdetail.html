@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+
+
+
+
+<div class="table-container">
+    <table class="styled-table">
+        <thead>
+            <tr class='under'>
+                <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                <th></th><th></th>
+                
+                <th>{{equip.station.name}} {{equip.name}} </th>
+                <th>ایستگاه  </th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th>حذف گزارش</th>
+                <th>ویرایش گزارش</th>
+                <th>سمپ</th>
+                <th>گزارش تکمیلی</th>
+                <th>قطعه تعویض شده</th>
+                <th>نظر کارشناس</th>
+                <th>کارشناس مربوطه</th>
+                <th>گزارش کننده</th>
+                <th>زمان توقف</th>
+                <th>ساعت پایان</th>
+                <th>ساعت شروع</th>
+                <th>شیفت</th>
+                <th>تاریخ</th>
+                {% comment %} <th>فایل مربوطه</th> {% endcomment %}
+                <th>شرح مختصر</th>
+                <th>تجهیز</th>
+                <th>نام خطا</th>
+    
+    
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in equip.report_set.all %}
+
+            <tr {% if report.id|divisibleby:2 %} class="active-row"{% endif %} >
+                    
+                <th><a href={% url 'reportdelete' report.id %} class="button condensed delete">حذف</a></th>        
+                <th><a href={% url 'reportupdate' report.id %} class="button condensed edit", >ویرایش</a></th>
+        
+                
+                <th>{{report.samp}}</th>
+                <th> {{report.cReport}} </th>
+                    <th>{% if report.piece.all %}{{report.piece.all}}{%else%}بدون تعویض {% endif %}</th>
+                    <th>{{report.opinion}}</th>
+                    <th>{{report.expert}}</th>
+                    <th>{{report.reporter}}</th>
+                    <th>{{report.stopTime|time:"H:i"}}</th>
+                    <th>{{report.endTime|time:"H:i"}}</th>
+                    <th> {{report.startTime|time:"H:i"}} </th>
+                    <th>{{report.shift}}</th>
+                    <th>{{report.date}}</th>
+                    {% comment %} <th><a class='button condensed cancel' href={% if report.fault.file %}" {{report.fault.file.url}} "{% endif %}>جزئیات</a></th> {% endcomment %}
+                    <th> {{report.description}} </th>
+                    <th><a >{{report.equip}}</a></th>
+                    <th><a href={% if report.fault.id %}"{% url 'faultdetail' report.fault.id %}"{% endif %}> {{report.fault.name}} </a></th>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+    
+    </div>
+    
+{% endblock content %}
